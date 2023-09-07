@@ -3,6 +3,9 @@ package com.leonovalexprog.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "products")
 @Builder
@@ -27,7 +30,6 @@ public class Product {
     @Column(nullable = false)
     private String brand;
 
-    @OneToOne
-    @JoinColumn(name = "price_id")
-    private Price price;
+    @OneToMany(mappedBy = "product")
+    private List<Price> prices = new ArrayList<>();
 }

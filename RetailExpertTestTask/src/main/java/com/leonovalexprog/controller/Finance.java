@@ -20,24 +20,24 @@ public class Finance {
         return priceService.addPrice(productId, newPrice);
     }
 
-    @GetMapping("/product/{productId}/price")
-    public PriceResponseDto getPrice(@PathVariable long productId) {
-        log.info("Get price info (productId = {})", productId);
+    @GetMapping("/price/{priceId}")
+    public PriceResponseDto getPrice(@PathVariable long priceId) {
+        log.info("Get price info (priceId = {})", priceId);
 
-        return priceService.readPrice(productId);
+        return priceService.readPrice(priceId);
     }
 
-    @PatchMapping("/product/{productId}/price")
-    public PriceResponseDto patchPrice(@PathVariable long productId, @RequestBody PriceRequestDto newPrice) {
-        log.info("Add new price (productId = {}, chainName = {}, price = {}", productId, newPrice.getChainName(), newPrice.getPrice());
+    @PatchMapping("/price/{priceId}")
+    public PriceResponseDto patchPrice(@PathVariable long priceId, @RequestBody PriceRequestDto newPrice) {
+        log.info("Add new price (priceId = {}, chainName = {}, price = {}", priceId, newPrice.getChainName(), newPrice.getPrice());
 
-        return priceService.updatePrice(productId, newPrice);
+        return priceService.updatePrice(priceId, newPrice);
     }
 
-    @DeleteMapping("/product/{productId}/price")
-    public void deletePrice(@PathVariable long productId) {
-        log.info("Delete price (productId = {})", productId);
+    @DeleteMapping("/price/{priceId}")
+    public void deletePrice(@PathVariable long priceId) {
+        log.info("Delete price (priceId = {})", priceId);
 
-        priceService.deletePrice(productId);
+        priceService.deletePrice(priceId);
     }
 }

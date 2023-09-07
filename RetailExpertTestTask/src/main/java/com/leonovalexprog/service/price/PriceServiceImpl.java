@@ -33,7 +33,7 @@ public class PriceServiceImpl implements PriceService{
 
         Price newPrice = priceRepository.save(price);
 
-        product.setPrice(newPrice);
+        product.getPrices().add(price);
         productRepository.save(product);
 
         return PriceMapper.toDto(newPrice);
@@ -41,38 +41,35 @@ public class PriceServiceImpl implements PriceService{
 
     @Override
     @Transactional
-    public PriceResponseDto readPrice(long productId) {
-        Product product = productRepository.findById(productId)
-                .orElseThrow(() -> new EntityNotFoundException("Product with id = " + productId + " not found"));
-        Price price = product.getPrice();
+    public PriceResponseDto readPrice(long priceId) {
+        Price price = priceRepository.findById(priceId)
+                .orElseThrow(() -> new EntityNotFoundException("Price with id = " + priceId + " not found"));
 
         return PriceMapper.toDto(price);
     }
 
     @Override
     @Transactional
-    public PriceResponseDto updatePrice(long productId, PriceRequestDto newPrice) {
-        Product product = productRepository.findById(productId)
-                .orElseThrow(() -> new EntityNotFoundException("Product with id = " + productId + " not found"));
-        Price price = product.getPrice();
+    public PriceResponseDto updatePrice(long priceId, PriceRequestDto newPrice) {
+        Price price = priceRepository.findById(priceId)
+                .orElseThrow(() -> new EntityNotFoundException("PriceId with id = " + priceId + " not found"));
 
+        if (newPrice.getPrice() != null)
+            price.setPrice(newPrice.getPrice());
         if (newPrice.getChainName() != null)
             price.setChainName(newPrice.getChainName());
-        if (newPrice.getPrice() != null)
-            price.setPrice(price.getPrice());
 
-        Price savedPrice = priceRepository.save(price);
+        Price updatedPrice = priceRepository.save(price);
 
-        return PriceMapper.toDto(savedPrice);
+        return PriceMapper.toDto(updatedPrice);
     }
 
     @Override
     @Transactional
-    public void deletePrice(long productId) {
-        Product product = productRepository.findById(productId)
-                .orElseThrow(() -> new EntityNotFoundException("Product with id = " + productId + " not found"));
-        Price price = product.getPrice();
+    public void deletePrice(long priceId) {
+        Price price = priceRepository.findById(priceId)
+                .orElseThrow(() -> new EntityNotFoundException("Price with id = " + priceId + " not found"));
 
-        priceRepository.delete(price);
+        priceRepository.deleteById(priceId);
     }
 }
