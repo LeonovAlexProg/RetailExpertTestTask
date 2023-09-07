@@ -27,3 +27,17 @@ INSERT INTO prices (chain_name, price, prod_id)
 VALUES ('zloy_pekar', 30, 2);
 INSERT INTO prices (chain_name, price, prod_id)
 VALUES ('metal_torg', 50000, 3);
+
+--Shipments
+INSERT INTO shipments (cust_id, prod_id, date, reg_price_id, price, quantity, shipment_type)
+VALUES (1, 1, CURRENT_DATE, 1, 50000, 100, 'REGULAR');
+INSERT INTO shipments (cust_id, prod_id, date, reg_price_id, price, quantity, shipment_type)
+VALUES (1, 1, CURRENT_DATE, 1, 150000, 300, 'REGULAR');
+INSERT INTO shipments (cust_id, prod_id, date, reg_price_id, price, quantity, shipment_type)
+VALUES (1, 1, CURRENT_DATE, 1, 20000, 50, 'PROMO');
+INSERT INTO shipments (cust_id, prod_id, date, reg_price_id, price, quantity, shipment_type)
+VALUES (1, 1, '20231010', 1, 24000, 80, 'PROMO');
+INSERT INTO shipments (cust_id, prod_id, date, reg_price_id, price, quantity, shipment_type)
+VALUES (1, 1, '20231010', 1, 75000, 300, 'PROMO');
+INSERT INTO shipments (cust_id, prod_id, date, reg_price_id, price, quantity, shipment_type)
+VALUES (1, 1, '20231212', 1, 25000, 50, 'REGULAR');

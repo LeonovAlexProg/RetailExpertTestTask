@@ -1,4 +1,4 @@
-package com.leonovalexprog.service.price;
+package com.leonovalexprog.service;
 
 import com.leonovalexprog.dto.PriceRequestDto;
 import com.leonovalexprog.dto.PriceResponseDto;

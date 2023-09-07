@@ -1,4 +1,4 @@
-package com.leonovalexprog.service.price;
+package com.leonovalexprog.service;
 
 import com.leonovalexprog.dto.PriceRequestDto;
 import com.leonovalexprog.dto.PriceResponseDto;
@@ -10,7 +10,6 @@ import com.leonovalexprog.repository.ProductRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -2,7 +2,7 @@ package com.leonovalexprog.controller;
 
 import com.leonovalexprog.dto.PriceRequestDto;
 import com.leonovalexprog.dto.PriceResponseDto;
-import com.leonovalexprog.service.price.PriceService;
+import com.leonovalexprog.service.PriceService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

@@ -25,6 +25,10 @@ public class Shipment {
     @JoinColumn(name = "prod_id", nullable = false)
     private Product products;
 
+    @ManyToOne
+    @JoinColumn(name = "reg_price_id", nullable = false)
+    private Price regularPrice;
+
     @Column(nullable = false)
     private LocalDate date;
 
