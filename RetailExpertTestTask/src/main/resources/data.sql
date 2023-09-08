@@ -32,7 +32,7 @@ VALUES ('metal_torg', 50000, 3);
 INSERT INTO shipments (cust_id, prod_id, date, reg_price_id, price, quantity, shipment_type)
 VALUES (1, 1, CURRENT_DATE, 1, 50000, 100, 'REGULAR');
 INSERT INTO shipments (cust_id, prod_id, date, reg_price_id, price, quantity, shipment_type)
-VALUES (1, 1, CURRENT_DATE, 1, 150000, 300, 'REGULAR');
+VALUES (1, 1, '20230907', 1, 150000, 300, 'REGULAR');
 INSERT INTO shipments (cust_id, prod_id, date, reg_price_id, price, quantity, shipment_type)
 VALUES (1, 1, CURRENT_DATE, 1, 20000, 50, 'PROMO');
 INSERT INTO shipments (cust_id, prod_id, date, reg_price_id, price, quantity, shipment_type)

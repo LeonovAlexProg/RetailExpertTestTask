@@ -1,4 +1,4 @@
-package com.leonovalexprog.model;
+package com.leonovalexprog.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,10 +9,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ShipmentAnalysis {
+public class ShipmentDailyAnalysisDto {
     private String chainName;
     private String category;
-    private Integer date;
-    private Float regularQuantity;
-    private Float promoQuantity;
+    private Integer day;
+    private Integer regularQuantity;
+    private Integer promoQuantity;
+    private Float promoPercent;
 }
