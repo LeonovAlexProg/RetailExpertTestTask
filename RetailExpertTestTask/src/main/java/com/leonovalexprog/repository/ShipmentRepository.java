@@ -10,14 +10,12 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface ShipmentRepository extends JpaRepository<Shipment, Long> {
-    @Query(value = "SELECT pr.chain_name AS \"chainName\", " +
-            "p.category AS \"category\", " +
-            "MONTH(s.date) AS \"month\", " +
-            "SUM(s.quantity) AS \"quantity\", " +
-            "s.shipment_type AS \"shipmentType\" " +
+    @Query(value = "SELECT chain_name AS \"chainName\", category, \"month\", SUM(reg_q) AS \"regularQuantity\", SUM(prom_q) AS \"promoQuantity\" FROM " +
+            "(SELECT pr.chain_name, p.category, MONTH(s.date) AS \"month\", CASE WHEN s.shipment_type = 'REGULAR' THEN SUM(s.quantity) ELSE 0 END AS \"REG_Q\",  CASE WHEN s.shipment_type = 'PROMO' THEN SUM(s.quantity) ELSE 0 END AS \"PROM_Q\",  s.shipment_type " +
             "FROM shipments AS s " +
             "JOIN products AS p ON p.id = s.prod_id " +
             "JOIN prices AS pr ON pr.id = s.reg_price_id " +
-            "GROUP BY pr.chain_name, s.shipment_type, s.date", nativeQuery = true)
+            "GROUP BY pr.chain_name, p.category, s.date, s.shipment_type) " +
+            "GROUP BY chain_name, category, \"month\"", nativeQuery = true)
     List<ShipmentAnalysisProjection> getFullShipmentAnalysis();
 }

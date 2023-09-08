@@ -1,6 +1,7 @@
 package com.leonovalexprog.service;
 
 import com.leonovalexprog.dto.ShipmentAnalysisDto;
+import com.leonovalexprog.mapper.ShipmentAnalysisMapper;
 import com.leonovalexprog.model.Shipment;
 import com.leonovalexprog.model.ShipmentAnalysis;
 import com.leonovalexprog.model.projection.ShipmentAnalysisProjection;
@@ -26,16 +27,14 @@ public class AnalysisServiceImpl implements AnalysisService {
                         projection.getChainName(),
                         projection.getCategory(),
                         projection.getMonth(),
-                        projection.getQuantity(),
-                        projection.getShipmentType()
+                        projection.getRegularQuantity(),
+                        projection.getPromoQuantity()
                 ))
                 .sorted(Comparator.comparing(ShipmentAnalysis::getMonth))
                 .toList();
 
-        List<ShipmentAnalysisDto> shipmentAnalysisDtos = new ArrayList<>();
-
-        for (ShipmentAnalysis model : shipmentAnalyses) {
-
-        }
+        return shipmentAnalyses.stream()
+                .map(ShipmentAnalysisMapper::toDto)
+                .toList();
     }
 }

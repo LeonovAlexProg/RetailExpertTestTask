@@ -9,7 +9,8 @@ import lombok.*;
 public class ShipmentAnalysisDto {
     private String chainName;
     private String category;
-    private String month;
+    private Integer month;
+    private Integer regularQuantity;
     private Integer promoQuantity;
-    private Integer promoPercent;
+    private Float promoPercent;
 }

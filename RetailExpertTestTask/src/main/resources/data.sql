@@ -41,3 +41,11 @@ INSERT INTO shipments (cust_id, prod_id, date, reg_price_id, price, quantity, sh
 VALUES (1, 1, '20231010', 1, 75000, 300, 'PROMO');
 INSERT INTO shipments (cust_id, prod_id, date, reg_price_id, price, quantity, shipment_type)
 VALUES (1, 1, '20231212', 1, 25000, 50, 'REGULAR');
+INSERT INTO shipments (cust_id, prod_id, date, reg_price_id, price, quantity, shipment_type)
+VALUES (2, 2, '20231212', 3, 2500, 50, 'REGULAR');
+INSERT INTO shipments (cust_id, prod_id, date, reg_price_id, price, quantity, shipment_type)
+VALUES (2, 2, '20231212', 4, 1500, 50, 'REGULAR');
+INSERT INTO shipments (cust_id, prod_id, date, reg_price_id, price, quantity, shipment_type)
+VALUES (2, 2, '20231212', 3, 2000, 50, 'PROMO');
+INSERT INTO shipments (cust_id, prod_id, date, reg_price_id, price, quantity, shipment_type)
+VALUES (2, 2, '20231212', 4, 1000, 50, 'PROMO');

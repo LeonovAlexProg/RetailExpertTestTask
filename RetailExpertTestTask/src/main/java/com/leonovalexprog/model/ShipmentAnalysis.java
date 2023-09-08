@@ -13,6 +13,6 @@ public class ShipmentAnalysis {
     private String chainName;
     private String category;
     private Integer month;
-    private Integer quantity;
-    private String shipmentType;
+    private Float regularQuantity;
+    private Float promoQuantity;
 }
